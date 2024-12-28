@@ -1,6 +1,6 @@
 # IcePox Portal (A Whitelabel Proxmox VM Portal for your clients)
 
-##### Use this at your own risk!!! I made this project in a short time and it's not fully tested. Don't expect any support. ##### 
+##### Use this at your own risk I made this project in a short time and it's not fully tested. Don't expect any support. ##### 
 
 A secure, user-friendly web interface that allows users to manage their assigned Proxmox VMs without requiring full access to the Proxmox interface. This portal is designed to be deployed on a server and accessed by multiple users through their web browsers.
 
@@ -46,7 +46,7 @@ sudo chown $USER:$USER /opt/proxmox-portal
 cd /opt/proxmox-portal
 
 # Clone the repository
-git clone <repository-url> .
+git clone https://github.com/Iceman-has-a-cold/IcePox.git .
 ```
 
 ### 3. Backend Setup
@@ -83,19 +83,11 @@ cd /opt/proxmox-portal/frontend
 # Install dependencies
 npm install
 
-# Create environment file
-nano .env.production
-```
-
-Add to `.env.production`:
-```env
-VITE_API_URL=https://your-domain.com/api
-```
-
-Build the frontend:
-```bash
+# Build the frontend
 npm run build
 ```
+
+Note: For development, the API URL is set to `http://localhost:8000`. If you need to change this for production, modify the `API_URL` in `src/services/vmService.ts`.
 
 ### 5. Configure Nginx
 
